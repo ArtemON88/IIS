@@ -12,24 +12,8 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-    - name: Build code
-      run: pipeline {
-    agent any
-    stages {
-        stage('Get project') {
-            steps {
-                git 'https://github.com/creativetimofficial/vue-paper-dashboard.git'
-            }
-        }
-        stage('Install dependencies') {
-            steps {
-              sh 'npm install'
-            }
-        }
-        stage('Build project') {
-            steps {
-               sh 'npm run build'
-            }
-        }
-    }
-}
+    - name: Install dependencies
+      run: npm install
+    - name: Build project
+      run: npm run build
+
